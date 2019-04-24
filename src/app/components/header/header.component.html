@@ -1,0 +1,4 @@
+<header class="header">
+  <app-auth-nav *ngIf="!localeStorageToken"></app-auth-nav>
+  <app-user-info *ngIf="localeStorageToken"></app-user-info>
+</header>

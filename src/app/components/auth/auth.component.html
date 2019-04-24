@@ -1,0 +1,44 @@
+<div class="auth" *ngIf="authRoute === 'signUp'">
+  <form [formGroup]="createForm" (ngSubmit)="signUp()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" formControlName="username" >
+      <mat-error *ngIf="createForm.get('username').hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div class="form-group" formGroupName="passwords">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" formControlName="password">
+        <mat-error *ngIf="createForm.get('passwords').get('password').hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Repeat password" formControlName="confirmPassword" >
+      </mat-form-field>
+      <mat-error *ngIf="createForm.get(['passwords','password']).value !== createForm.get(['passwords','confirmPassword']).value && createForm.get(['passwords','confirmPassword']).value !== null">
+        Password is <strong>required</strong>
+      </mat-error>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email" >
+      <mat-error *ngIf="createForm.get('email').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Registration</button>
+    <a class="link" [routerLink]="['/user/signIn']">Authorizated?</a>
+  </form>
+</div>
+<div class="auth" *ngIf="authRoute == 'signIn'">
+  <form [formGroup]="loginForm" (ngSubmit) = "signIn()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" formControlName="password" >
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Sign in</button>
+    <a class="link" [routerLink]="['/user/signUp']">No registration?</a>
+  </form>
+</div>

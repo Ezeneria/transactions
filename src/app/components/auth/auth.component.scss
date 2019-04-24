@@ -1,0 +1,22 @@
+.auth{
+  display: flex;
+  flex-direction: column;
+  max-width: 233px;
+  margin: 0 auto;
+  .example-full-width{
+    width: 100%;
+  }
+  .form-group  > ::ng-deep.mat-error{
+    font-size: 75%;
+  }
+  button {
+    width: 100%;
+  }
+  .link{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 13px;
+    color: #5d5d5d;
+  }
+}
